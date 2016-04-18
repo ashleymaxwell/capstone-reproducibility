@@ -29,7 +29,9 @@ Check the structure of the data.
 <!--
 Create a table that shows how many people fell into each category.
 -->
-
+         Control   Experimental
+##No            20        14
+##Yes           20        26
 
 
 <!--
@@ -40,4 +42,6 @@ statement that supports your interpretation. As there's no way to
 insert the chi-square symbol, you can just use chi-square instead
 (see example4.Rmd).
 -->
+###According to the chi-square test agreement and condition are related
+##x^2(1)=1.28, .26
 
