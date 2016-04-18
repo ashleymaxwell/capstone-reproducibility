@@ -30,15 +30,18 @@ Check the structure of the data.
 Find the mean, median, and standard deviation using the sd() function
 for the overall level of conservatism.
 -->
-
-
+###Mean for overall conservatism= 52.29458
+###Median for overall conservatism= 53.832331
+###Standard Deviation for overall conservatism= 19.757557
 
 <!--
 Find the mean level of support for freshmen only.
 -->
-
+###The mean level of support for freshman is .25
 
 
 <!--
 Find the mean level of support for male business students only.
 -->
+###The mean support for sophomore business students is .15
+
