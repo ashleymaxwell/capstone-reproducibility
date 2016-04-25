@@ -1,5 +1,8 @@
 ## Homework 4
-
+The first step is to read in the data
+```{r}
+dat<-read.csv("homework4.csv")
+```
 <!--
 Remember you can use the example4.Rmd or other files to find examples
 of the codes you'll need to use to complete this assignment. I strongly
