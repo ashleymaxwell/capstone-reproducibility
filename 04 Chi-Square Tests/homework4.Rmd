@@ -1,8 +1,11 @@
 ## Homework 4
-The first step is to read in the data
+The first step is to read in the data.
 ```{r}
 dat<-read.csv("homework4.csv")
 ```
+As we can see dat is a data frame with two variables:condition and agreement.
+Now we will create a table that shows how many people fell into each category.
+
 <!--
 Remember you can use the example4.Rmd or other files to find examples
 of the codes you'll need to use to complete this assignment. I strongly
@@ -32,10 +35,11 @@ Check the structure of the data.
 <!--
 Create a table that shows how many people fell into each category.
 -->
-         Control   Experimental
-##No            20        14
-##Yes           20        26
-
+         
+```{r}
+table(dat$condition, dat$agreement)
+```
+From examining the table it appears that there are the same amount of people for yes and no in the control; and that there are more people for yes in the experimental.
 
 <!--
 Perform a chi-square test to determine whether or not the experimental
@@ -45,6 +49,10 @@ statement that supports your interpretation. As there's no way to
 insert the chi-square symbol, you can just use chi-square instead
 (see example4.Rmd).
 -->
-###According to the chi-square test agreement and condition are related
-##x^2(1)=1.28, .26
+To determine if the data support the appearance of a relationship between control and experimental, I performed a chi-square test.
+```{r}
+chisq.test(dat$condition,dat$agreement)
+```
+According to the results of the chi-square test, condition and agreement are independent of one another Chi-square(1) = 1.3, p = .26.
+
 
