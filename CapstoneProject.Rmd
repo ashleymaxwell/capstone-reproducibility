@@ -1,0 +1,75 @@
+---
+title: "CapstoneProject"
+author: "Ashley Maxwell"
+date: "May 11, 2016"
+output: html_document
+---
+
+```{r}
+dat<-read.csv("Questiondata.csv")
+```
+
+```{r}
+str(dat)
+```
+As we can see dat from the data frame has four variables:Cover, Home, Coffee, Article
+```{r}
+dat$total = dat$Cover + dat$Home + dat$Coffee
+```
+
+```{r}
+mean(dat$Cover[dat$Article=="positive"])
+mean(dat$Home[dat$Article=="positive"])
+mean(dat$Coffee[dat$Article=="positive"])
+```
+
+```{r}
+mean(dat$Cover[dat$Article=="neutral"])
+mean(dat$Home[dat$Article=="neutral"])
+mean(dat$Coffee[dat$Article=="neutral"])
+```
+
+It looks like the means for the positive articles are slightly smaller than the means for neutral articles, which would show that people were manipulated by the article. I will run an independent t-test to test if the neutral group's mean differed significantly from the mean of the positive group.  
+
+```{r}
+t.test(dat$Cover[dat$Article=="positive"],
+       dat$Cover[dat$Article=="neutral"],
+       var.equal=TRUE,)
+```
+The t-test reveals that there is not a significant difference between the positive and neutral article responses for cover, t(71)= -.225, p= ,85
+
+```{r}
+t.test(dat$Home[dat$Article=="positive"],
+       dat$Home[dat$Article=="neutral"],
+       var.equal=TRUE,)
+```
+The t-test shows that there is no significant difference between the positive and neutral article responses for Home, t(71)= -.245, p=.81
+```{r}
+t.test(dat$Coffee[dat$Article=="positive"],
+       dat$Coffee[dat$Article=="neutral"],
+       var.equal=TRUE,)
+```
+The t-test shows that there is no significant difference between the positive and neutral article responses for Coffee, t(71)= -.138, p= .89
+
+To test the alternative hypothesis that the positive responses differed significantly from the neutral, I will run another t-test.
+```{r}
+t.test(dat$Coffee[dat$Article=="positive"],
+       dat$Coffee[dat$Article=="neutral"],
+       var.equal=TRUE,
+       alternative="greater")
+```
+
+```{r}
+t.test(dat$Home[dat$Article=="positive"],
+       dat$Home[dat$Article=="neutral"],
+       var.equal=TRUE,
+       alternative="greater")
+```
+
+```{r}
+t.test(dat$Cover[dat$Article=="positive"],
+       dat$Cover[dat$Article=="neutral"],
+       var.equal=TRUE,
+       alternative="greater")
+```
+From the results of the t-tests that tests the alternative hypothesis, we can see that there is no significNant difference between the two groups positive and neutral. 
